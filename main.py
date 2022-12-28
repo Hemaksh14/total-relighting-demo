@@ -7,6 +7,7 @@ import requests
 from matting.getMatting import Matting
 from placement import place
 from harmonization.main import get_harmonized
+import gradio as gr
 
 #Input : Foreground Image, Background Image
 #Output : Harmonized Image
@@ -78,3 +79,10 @@ def folder_util(matting_pretrained,obj_placement_pretrained):
         os.mkdir('result/graconet')
         os.mkdir('result/graconet/models')
         shutil.copy(obj_placement_pretrained,'result/graconet/models')
+
+demo = gr.Interface(
+    fn=main, 
+    inputs= [gr.Image(shape=(200, 200)),gr.Image(shape=(200, 200))], 
+    outputs= ["image"]
+    )
+demo.launch()
