@@ -80,9 +80,10 @@ def folder_util(matting_pretrained,obj_placement_pretrained):
         os.mkdir('result/graconet/models')
         shutil.copy(obj_placement_pretrained,'result/graconet/models')
 
-demo = gr.Interface(
-    fn=main, 
-    inputs= [gr.Image(shape=(200, 200)),gr.Image(shape=(200, 200))], 
-    outputs= ["image"]
-    )
-demo.launch()
+#For Gradio interface
+# demo = gr.Interface(
+#     fn=main, 
+#     inputs= [gr.Image(shape=(200, 200)),gr.Image(shape=(200, 200))], 
+#     outputs= ["image"]
+#     )
+# demo.launch()
